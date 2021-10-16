@@ -16,8 +16,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Run tests
-      run: dir
+    - name: Start containers
+      run: docker-compose -f "docker-compose.yml" up -d --build
       
     - name: Run tests
       run: docker-compose run test
+      
+    - name: Stop containers
+      if: always()
+      run: docker-compose -f "docker-compose.yml" down
