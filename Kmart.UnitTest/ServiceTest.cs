@@ -123,6 +123,12 @@ namespace Kmart.UnitTest
                 "6 1 5 9 d 2",
                 null,
                 typeof(ArgumentException)
+            },
+            new object[]
+            {
+                "abc",
+                null,
+                typeof(ArgumentException)
             }
         };
     }
